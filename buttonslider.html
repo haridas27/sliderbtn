@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .conteiner {
+            height: 500px;
+            width: 1000px;
+            margin: 20px auto;
+            /* box-shadow: 0px 0px 15px black; */
+            position: relative;
+            overflow: hidden;
+        }
+
+        img {
+            width: 50%;
+            position: absolute;
+            transition: 1s;
+        }
+
+        .nav {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="one">
+        <div class="conteiner">
+            <img class="img" src="../J.S/img/class img.png" alt="">
+            <img class="img" src="../J.S/img/seven img.png" alt="">
+            <img class="img" src="../J.S/img/yoga1.png" alt="">
+            <img class="img" src="../J.S/img/yoga2.png" alt="">
+            <img class="img" src="../J.S/img/yoga3.png" alt="">
+        </div>
+        <div class="nav">
+            <button onclick="goprev()">
+                Prev
+            </button>
+            <button onclick="gonext()">
+                Next
+            </button>
+        </div>
+    </section>
+
+
+    <script>
+        let slider = document.querySelectorAll(".img")
+        console.log(slider);
+        let count = 0
+
+        slider.forEach(
+            (img, index) => {
+                img.style.left = `${index * 100}%`
+            }
+        )
+
+        let sliderpic = () => {
+            slider.forEach(
+                (img) => {
+                    img.style.transform = `translateX(${count * 100}%)`
+                }
+            )
+        }
+
+        let goprev = () => {
+            count++
+            sliderpic()
+        }
+
+        let gonext = () => {
+            count--
+            sliderpic()
+        }
+    </script>
+</body>
+
+</html>
